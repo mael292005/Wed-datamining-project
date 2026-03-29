@@ -1,0 +1,21 @@
+@prefix hp: <http://harrypotter.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+hp:appearsIn owl:equivalentProperty wdt:P1441 .
+
+hp:birthYear rdfs:subPropertyOf wdt:P569 .
+
+hp:hasChild owl:equivalentProperty wdt:P40 .
+
+hp:hasFather owl:equivalentProperty wdt:P22 .
+
+hp:hasMother owl:equivalentProperty wdt:P25 .
+
+hp:hasSibling owl:equivalentProperty wdt:P3373 .
+
+hp:hasSpouse owl:equivalentProperty wdt:P26 .
+
+hp:memberOf rdfs:subPropertyOf wdt:P361 .
+
