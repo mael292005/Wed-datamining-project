@@ -92,5 +92,9 @@ Converts natural language questions to SPARQL using Ollama (gemma:2b). Includes 
 
 1. Download Ollama from https://ollama.com
 2. Run `ollama serve` in a terminal (keep it running)
-3. Pull the model: `ollama pull gemma:2b`
+3. Pull the model: `ollama pull llama3`
 4. The notebook will connect automatically to `http://localhost:11434`
+
+## Screenshot
+
+![t-SNE embeddings](image.png)
