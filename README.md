@@ -5,7 +5,6 @@ A full pipeline: data acquisition → RDF graph → SWRL reasoning → KGE → R
 ---
 
 ## Installation
-
 ```bash
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
@@ -21,7 +20,6 @@ ollama pull gemma:2b
 ---
 
 ## Project Structure
-
 ```
 project-root/
 ├── notebooks/
@@ -52,40 +50,38 @@ project-root/
 
 Run the notebook cells in order from top to bottom.
 
-**Module 1 — Data Acquisition (cells 5–6)**
+**Module 1 — Data Acquisition** (cells 5–6)
 Queries Wikidata SPARQL to collect Harry Potter characters, books, and family relations.
 
-**Module 2 — NER (cells 8–10)**
+**Module 2 — NER** (cells 8–10)
 Applies spaCy NER on HP character descriptions. Illustrates 3 ambiguity cases.
 
-**Module 3 — KB Construction (cells 12–13)**
+**Module 3 — KB Construction** (cells 12–13)
 Builds the RDF graph with custom ontology (classes + object/datatype properties).
 
-**Module 4 — Alignment (cells 15–16)**
+**Module 4 — Alignment** (cells 15–16)
 Aligns private predicates to Wikidata properties via `owl:equivalentProperty`.
 
-**Module 5 — KB Expansion (cell 19)**
+**Module 5 — KB Expansion** (cell 19)
 Loads the pre-expanded KB from `hp_expanded_kb.ttl` (57,902 triples).
-> To re-run the expansion from scratch, replace cell 19 with the SPARQL expansion code.
+To re-run the expansion from scratch, replace cell 19 with the SPARQL expansion code.
 
-**Module 6 — SWRL Reasoning (cells 23–25)**
+**Module 6 — SWRL Reasoning** (cells 23–25)
 - Part 1: infers `OldPerson` from `age > 60` on `family.owl`
 - Part 2: infers `hasBrother` from `hasSibling + gender=male` on the HP KB
 
-**Module 7 — KGE (cells 27–36)**
-Trains TransE and DistMult via PyKEEN. Evaluates MRR, Hits@1/3/10.
-Includes size-sensitivity analysis and t-SNE visualization.
+**Module 7 — KGE** (cells 27–36)
+Trains TransE and DistMult via PyKEEN. Evaluates MRR, Hits@1/3/10. Includes size-sensitivity analysis and t-SNE visualization.
 
-**Module 8 — RAG NL→SPARQL (cells 40–45)**
-Converts natural language questions to SPARQL using Ollama (gemma:2b).
-Includes self-repair mechanism and baseline vs RAG evaluation on 5 questions.
+**Module 8 — RAG NL→SPARQL** (cells 40–45)
+Converts natural language questions to SPARQL using Ollama (gemma:2b). Includes self-repair mechanism and baseline vs RAG evaluation on 5 questions.
 
 ---
 
 ## KB Statistics
 
 | Metric | Value |
-|--------|-------|
+|---|---|
 | Total triples | 57,902 |
 | Unique entities | 19,018 |
 | Unique relations | 180 |
@@ -98,8 +94,3 @@ Includes self-repair mechanism and baseline vs RAG evaluation on 5 questions.
 2. Run `ollama serve` in a terminal (keep it running)
 3. Pull the model: `ollama pull gemma:2b`
 4. The notebook will connect automatically to `http://localhost:11434`
-
----
-
-## Screenshot
-![alt text](image.png)
