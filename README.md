@@ -1,4 +1,5 @@
 # Harry Potter Knowledge Graph
+Our Web Datamining project
 
 A full pipeline: data acquisition → RDF graph → SWRL reasoning → KGE → RAG (NL→SPARQL).
 
